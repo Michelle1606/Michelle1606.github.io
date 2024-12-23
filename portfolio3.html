@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Michelle De Melo, showcasing my skills, projects, and experience.">
+    <title>Michelle De Melo | Portfolio</title>
+
+    <!-- Font Awesome CDN for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #F4F4F9; /* Light gray background */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #4A90E2; /* Blue header */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Home Section */
+        section#home {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #ffffff; /* White background */
+        }
+
+        section#home h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1D3557; /* Dark Blue for header text */
+        }
+
+        section#home p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: #333; /* Dark gray for paragraph text */
+        }
+
+        /* About Section */
+        section#about {
+            background-color: #E1E8F0; /* Light Blue background */
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section#about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1D3557; /* Dark Blue for header text */
+        }
+
+        section#about p {
+            font-size: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #333; /* Dark gray for paragraph text */
+        }
+
+        /* Skills Section */
+        section#skills {
+            padding: 50px 20px;
+            background-color: #F9F9F9;
+            text-align: center;
+        }
+
+        section#skills h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #4A90E2; /* Blue header */
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skills-category {
+            width: 30%;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+
+        .skills-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #8B5CF6; /* Purple for subheaders */
+        }
+
+        .skills-category ul {
+            list-style-type: none;
+            font-size: 1.1rem;
+        }
+
+        .skills-category li {
+            margin: 10px 0;
+        }
+
+        .skills-category i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        /* Skill Progress Bars */
+        .skills-progress {
+            margin-top: 50px;
+        }
+
+        .skills-progress h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #8B5CF6;
+        }
+
+        .progress-bar {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        progress {
+            width: 100%;
+            height: 20px;
+            border-radius: 5px;
+            -webkit-appearance: none;
+        }
+
+        progress[value] {
+            color: #50E3C2; /* Teal for progress bar */
+            background-color: #f3f3f3;
+            border: 1px solid #ddd;
+        }
+
+        progress[value="0"] {
+            color: #ff4d4d;
+        }
+
+        progress[value="100"] {
+            color: #4caf50;
+        }
+
+        /* Portfolio Section */
+        section#portfolio {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        section#portfolio h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #4A90E2;
+        }
+
+        /* Center the Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+            justify-items: center; /* Center items horizontally */
+            justify-content: center; /* Center the entire grid horizontally */
+        }
+
+        /* Portfolio Item Styling */
+        .gallery-item {
+            background-color: #f1f1f1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .gallery-item h3 {
+            font-size: 1.5rem;
+            margin: 10px;
+            color: #4A90E2;
+        }
+
+        .gallery-item p {
+            padding: 0 10px;
+            font-size: 1rem;
+        }
+
+        /* Testimonials Section */
+        section#testimonials {
+            padding: 50px 20px;
+            background-color: #F9F9F9;
+            text-align: center;
+        }
+
+        section#testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #4A90E2;
+        }
+
+        .testimonial {
+            max-width: 600px;
+            margin: 0 auto 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .testimonial cite {
+            display: block;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Contact Section */
+        section#contact {
+            padding: 50px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        section#contact h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #4A90E2;
+        }
+
+        form {
+            display: grid;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        input, textarea {
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3E7CC3;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #4A90E2;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #fff;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Michelle De Melo</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Hi, I'm Michelle De Melo. A passionate learner, tech enthusiast, and a creative soul. I'm constantly improving my skills in web development and design.</p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am Michelle Efiphania De Melo, native to Goa, India, a state known for its overwhelming beaches. I come from a family of five members, and I am the youngest of the three. I completed my Secondary Education in Presentation Convent High School, Goa, India, and my Higher Secondary Education in Ramacrisna Madeva Salgaocar Higher Secondary School, Goa, India.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <!-- Technical Skills -->
+            <div class="skills-category">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li><i class="fa fa-code"></i> HTML</li>
+                    <li><i class="fa fa-code"></i> CSS</li>
+                    <li><i class="fa fa-laptop"></i> JavaScript</li>
+                    <li><i class="fa fa-terminal"></i> C</li>
+                    <li><i class="fa fa-terminal"></i> C++</li>
+                    <li><i class="fa fa-server"></i> PHP</li>
+                </ul>
+            </div>
+            <!-- Web Development Skills -->
+            <div class="skills-category">
+                <h3>Web Development</h3>
+                <ul>
+                    <li><i class="fa fa-laptop-code"></i> Front-End</li>
+                    <li><i class="fa fa-database"></i> Back-End</li>
+                </ul>
+            </div>
+            <!-- Design Skills -->
+            <div class="skills-category">
+                <h3>Design Skills</h3>
+                <ul>
+                    <li><i class="fa fa-paint-brush"></i> Web Design</li>
+                    <li><i class="fa fa-pencil-ruler"></i> UI/UX Design</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Skill Progress Bars -->
+        <div class="skills-progress">
+            <h3>My Progress</h3>
+            <div class="progress-bar">
+                <label>HTML</label>
+                <progress value="90" max="100"></progress>
+            </div>
+            <div class="progress-bar">
+                <label>CSS</label>
+                <progress value="80" max="100"></progress>
+            </div>
+            <div class="progress-bar">
+                <label>JavaScript</label>
+                <progress value="70" max="100"></progress>
+            </div>
+            <div class="progress-bar">
+                <label>PHP</label>
+                <progress value="60" max="100"></progress>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="synergy-screenshot.jpg" alt="Synergy Project" />
+                <h3>Synergy</h3>
+                <p>A project for my BCA final year that manages company data, including record-keeping, generating reports, and updating/deleting records. I worked as part of a team of six members, and I am still actively involved in its development.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="website-design.jpg" alt="Website Design" />
+                <h3>Website Design</h3>
+                <p>Designed a responsive, user-friendly website for a small business. Focused on clean visuals and seamless navigation.</p>
+            </div>
+            <div class="gallery-item">
+                <img src="corel-logo.jpg" alt="Logo Design" />
+                <h3>Logo Design</h3>
+                <p>Created a custom logo for a local event management company, focusing on simplicity and modern aesthetics.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial">
+            <p>"Michelle's work on our Synergy project was outstanding. She brought creative solutions and technical excellence to the team."</p>
+            <cite>- Professor XYZ, BCA Faculty</cite>
+        </div>
+        <div class="testimonial">
+            <p>"Her attention to detail and ability to work under pressure make her a great asset to any team. Highly recommended!"</p>
+            <cite>- Jane Smith, UX Designer</cite>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="#">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Michelle De Melo. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+</html>
